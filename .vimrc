@@ -14,13 +14,12 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
-" Plugin 'jelera/vim-javascript-syntax'
-" Plugin 'pangloss/vim-javascript'
 Plugin 'alvan/vim-closetag'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'roman/golden-ratio'
 Plugin 'itchyny/lightline.vim'
 Plugin 'gregsexton/MatchTag'
+Plugin 'pangloss/vim-javascript'
 Plugin 'leafgarland/typescript-vim'
 
 " All of your Plugins must be added before the following line
@@ -42,15 +41,11 @@ filetype plugin indent on    " required
 " When all all else fails; change name of .vim, e.g. mv .vim .vim2, then try
 " launch vim, then change .vim back, relaunch vim and install plugins
 
-autocmd vimenter * NERDTree                     " Open NERDTree with vim
-let NERDTreeShowHidden=1                        " Show hidden files
-let NERDTreeIgnore = ['\.swp$']                 " NERDTree to ignore .swp files
-
 set t_Co=256                                    " Enable 256 colour mode
 syntax enable                                   " Syntax highlighting
-set ignorecase                                  " Make searches case insensitive
+"set ignorecase                                 " Make searches case insensitive
 set nowrap                                      " No word wrapping at end of line
-colorscheme lucario                             " Set colorscheme 
+colorscheme solarized                           " Set colorscheme 
 
 set colorcolumn=80                              " 80 character column marker
 highlight ColorColumn ctermbg=Black             " Set column marker colour
@@ -75,6 +70,10 @@ set number                                      " Hybrid numbering - show cursor
 autocmd InsertEnter * :set number norelativenumber
 " Show hybrid numbering in normal mode
 autocmd InsertLeave * :set relativenumber number
+
+autocmd vimenter * NERDTree                     " Open NERDTree with vim
+let NERDTreeShowHidden=1                        " Show hidden files
+let NERDTreeIgnore = ['\.swp$']                 " NERDTree to ignore .swp files
 
 filetype plugin on                              " Used for nerdcommenter
 let g:NERDSpaceDelims = 1                       " Add a space after comment delimiters by default
