@@ -58,6 +58,8 @@ set expandtab                                   " Make the tab key insert spaces
 set shiftwidth=2                                " The size of an indent, in spaces
 set smarttab                                    " Make the tab key insert spaces or tabs to go to the next indent
 
+set backspace=indent,eol,start                  " Make backspace behave 'normally'
+
 set autoindent                                  " Auto indent on new line
 set scrolloff=20                                " Determine number of lines to keep above and below cursor where possible
 
@@ -79,6 +81,7 @@ filetype plugin on                              " Used for nerdcommenter
 let g:NERDSpaceDelims = 1                       " Add a space after comment delimiters by default
 
 map <C-n> :NERDTreeToggle<CR>                   " Shortcut to toggle NERDTree with Ctrl+n
+" map <C-N> :NERDTree<Cr>                         " Focus back on NERDTree window
 
 let g:closetag_filenames = "*.html,*.tpl"      " Auto close html tags in html and tpl files
 
