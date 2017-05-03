@@ -51,6 +51,10 @@ set colorcolumn=80                              " 80 character column marker
 highlight ColorColumn ctermbg=Black             " Set column marker colour
 set cursorline                                  " Set highlighting of cursor line
 highlight CursorLine ctermbg=Black              " Set colouring of cursor line
+set hlsearch                                    " Highlight search matches
+set incsearch                                   " Incremental search; show search matches while typing
+
+nmap <silent> ,/ :nohlsearch<CR>                " Clear search with ,/
 
 set tabstop=8                                   " The width, in spaces, of a hard tabstop
 set softtabstop=0                               " Turn off softtabstop
@@ -59,12 +63,14 @@ set shiftwidth=2                                " The size of an indent, in spac
 set smarttab                                    " Make the tab key insert spaces or tabs to go to the next indent
 
 set backspace=indent,eol,start                  " Make backspace behave 'normally'
-
 set autoindent                                  " Auto indent on new line
+
 set scrolloff=20                                " Determine number of lines to keep above and below cursor where possible
 
 set path+=**                                    " Allows searching down into subfolders
 set wildmenu                                    " Visual autocomplete for command menu
+
+set visualbell                                  " Don't beep at me
 
 set relativenumber                              " Hybrid numbering - show relative line numbers
 set number                                      " Hybrid numbering - show cursor line number
@@ -81,9 +87,8 @@ filetype plugin on                              " Used for nerdcommenter
 let g:NERDSpaceDelims = 1                       " Add a space after comment delimiters by default
 
 map <C-n> :NERDTreeToggle<CR>                   " Shortcut to toggle NERDTree with Ctrl+n
-" map <C-N> :NERDTree<Cr>                         " Focus back on NERDTree window
 
-let g:closetag_filenames = "*.html,*.tpl"      " Auto close html tags in html and tpl files
+let g:closetag_filenames = "*.html,*.tpl"       " Auto close html tags in html and tpl files
 
 nnoremap S diw"0P"                              " Stamp a word; replace the current word with the last yanked text
 
@@ -101,3 +106,6 @@ let g:lightline = {
 function! LightLineRelativePath()
   return expand('%')
 endfunction
+
+" map <C-h> <C-W>h                                " Navigate to left window split with Ctrl + h 
+" map <C-l> <C-W>l                                " Navigate to right window split with Ctrl + l
