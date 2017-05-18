@@ -43,7 +43,8 @@ filetype plugin indent on    " required
 
 set t_Co=256                                    " Enable 256 colour mode
 syntax enable                                   " Syntax highlighting
-"set ignorecase                                 " Make searches case insensitive
+set ignorecase                                  " Make searches case insensitive
+set smartcase                                   " Searches only case sensitive when there is a capital letter
 set nowrap                                      " No word wrapping at end of line
 colorscheme solarized                           " Set colorscheme 
 
@@ -79,14 +80,17 @@ autocmd InsertEnter * :set number norelativenumber
 " Show hybrid numbering in normal mode
 autocmd InsertLeave * :set relativenumber number
 
-autocmd vimenter * NERDTree                     " Open NERDTree with vim
+" Open NERDTree automatically on vim startup if no file is specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" autocmd vimenter * NERDTree                     " Open NERDTree with vim
 let NERDTreeShowHidden=1                        " Show hidden files
-let NERDTreeIgnore = ['\.swp$']                 " NERDTree to ignore .swp files
+let NERDTreeIgnore = ['\.swp$', '\.pyc$']       " NERDTree to ignore .swp files
+map <C-n> :NERDTreeToggle<CR>                   " Shortcut to toggle NERDTree with <C-n>
 
 filetype plugin on                              " Used for nerdcommenter
 let g:NERDSpaceDelims = 1                       " Add a space after comment delimiters by default
-
-map <C-n> :NERDTreeToggle<CR>                   " Shortcut to toggle NERDTree with Ctrl+n
 
 let g:closetag_filenames = "*.html,*.tpl"       " Auto close html tags in html and tpl files
 
@@ -107,5 +111,7 @@ function! LightLineRelativePath()
   return expand('%')
 endfunction
 
-" map <C-h> <C-W>h                                " Navigate to left window split with Ctrl + h 
-" map <C-l> <C-W>l                                " Navigate to right window split with Ctrl + l
+" From insert mode, skip to end of line with ii
+" inoremap ii <C-o>$
+" From insert mode, skip to end of line with <C-e>
+" inoremap <C-e> <C-o>$
