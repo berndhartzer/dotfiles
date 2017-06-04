@@ -12,15 +12,17 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Keep Plugin commands between vundle#begin/end.
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'alvan/vim-closetag'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'roman/golden-ratio'
-Plugin 'itchyny/lightline.vim'
-Plugin 'gregsexton/MatchTag'
-Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdtree'                    " Tree file explorer
+" Plugin 'scrooloose/nerdcommenter'               " Powerful commenting
+Plugin 'tpope/vim-commentary'                   " Simple commenting
+Plugin 'jiangmiao/auto-pairs'                   " Auto bracket or parens closing
+Plugin 'roman/golden-ratio'                     " Auto window sizing
+Plugin 'itchyny/lightline.vim'                  " Statusline
+" Plugin 'gregsexton/MatchTag'                  " Highlight matching html tags
+Plugin 'alvan/vim-closetag'                     " Auto close html tags
+
 Plugin 'leafgarland/typescript-vim'
+Plugin 'pangloss/vim-javascript'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -68,8 +70,8 @@ set autoindent                                  " Auto indent on new line
 
 set scrolloff=20                                " Determine number of lines to keep above and below cursor where possible
 
-set path+=**                                    " Allows searching down into subfolders
-set wildmenu                                    " Visual autocomplete for command menu
+" set path+=**                                    " Allows searching down into subfolders
+" set wildmenu                                    " Visual autocomplete for command menu
 
 set visualbell                                  " Don't beep at me
 
@@ -89,7 +91,7 @@ let NERDTreeShowHidden=1                        " Show hidden files
 let NERDTreeIgnore = ['\.swp$', '\.pyc$']       " NERDTree to ignore .swp files
 map <C-n> :NERDTreeToggle<CR>                   " Shortcut to toggle NERDTree with <C-n>
 
-filetype plugin on                              " Used for nerdcommenter
+" filetype plugin on                              " Used for nerdcommenter
 let g:NERDSpaceDelims = 1                       " Add a space after comment delimiters by default
 
 let g:closetag_filenames = "*.html,*.tpl"       " Auto close html tags in html and tpl files
