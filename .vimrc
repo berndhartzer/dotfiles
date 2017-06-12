@@ -87,13 +87,12 @@ autocmd InsertLeave * :set relativenumber number
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" autocmd vimenter * NERDTree                     " Open NERDTree with vim
-let NERDTreeShowHidden=1                        " Show hidden files
-let NERDTreeIgnore = ['\.swp$', '\.pyc$']       " NERDTree to ignore .swp files
+let NERDTreeShowHidden=1                        " Show hidden files in NERDTree
+let NERDTreeIgnore = ['\.swp$', '\.pyc$']       " NERDTree files to ignore
 map <C-n> :NERDTreeToggle<CR>                   " Shortcut to toggle NERDTree with <C-n>
 
 " filetype plugin on                              " Used for nerdcommenter
-let g:NERDSpaceDelims = 1                       " Add a space after comment delimiters by default
+" let g:NERDSpaceDelims = 1                       " Add a space after comment delimiters by default
 
 let g:closetag_filenames = "*.html,*.tpl"       " Auto close html tags in html and tpl files
 
