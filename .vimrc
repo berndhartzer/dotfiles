@@ -48,15 +48,16 @@ syntax enable                                   " Syntax highlighting
 set ignorecase                                  " Make searches case insensitive
 set smartcase                                   " Searches only case sensitive when there is a capital letter
 set nowrap                                      " No word wrapping at end of line
+
 colorscheme solarized                           " Set colorscheme 
 
 set colorcolumn=80                              " 80 character column marker
 highlight ColorColumn ctermbg=Black             " Set column marker colour
 set cursorline                                  " Set highlighting of cursor line
 highlight CursorLine ctermbg=Black              " Set colouring of cursor line
+
 set hlsearch                                    " Highlight search matches
 set incsearch                                   " Incremental search; show search matches while typing
-
 nmap <silent> ,/ :nohlsearch<CR>                " Clear search with ,/
 
 set tabstop=8                                   " The width, in spaces, of a hard tabstop
@@ -101,12 +102,14 @@ nnoremap S diw"0P"                              " Stamp a word; replace the curr
 set laststatus=2                                " Always show the statusline
                                                       
 " Configure lightline, including colorscheme and displaying relative paths
-let g:lightline = { 
-  \ 'colorscheme': 'jellybeans', 
-  \ 'component_function': { 
-    \ 'filename': 'LightLineRelativePath'
-  \ } 
-\ }
+" let g:lightline = { 
+"   \ 'colorscheme': 'jellybeans', 
+"   \ 'component_function': { 
+"     \ 'filename': 'LightLineRelativePath'
+"   \ } 
+" \ }
+let g:lightline = { 'colorscheme': 'jellybeans', 'component_function': { 'filename': 'LightLineRelativePath' } }
+
 
 " Function used by lightline to display relative path names for files
 function! LightLineRelativePath()
@@ -117,3 +120,5 @@ endfunction
 " inoremap ii <C-o>$
 " From insert mode, skip to end of line with <C-e>
 " inoremap <C-e> <C-o>$
+
+au BufNewFile,BufRead *.tpl :set filetype=php   " Use php syntax colouring for .tpl files
