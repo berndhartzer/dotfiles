@@ -53,12 +53,13 @@ nmap <silent> ,/ :nohlsearch<CR>                " Clear search with ,/
 
 " set termguicolors                               " 24 bit colour
 " set t_Co=256                                    " Enable 256 colour mode
-colorscheme solarized                           " Set colorscheme 
+colorscheme nord                                " Set colorscheme 
+" set fillchars=vert:\                            " Set the vertical split fill character to a space character
 
 set colorcolumn=80                              " 80 character column marker
-highlight ColorColumn ctermbg=Black             " Set column marker colour
+highlight ColorColumn ctermbg=0                 " Set column marker colour
 set cursorline                                  " Set highlighting of cursor line
-highlight CursorLine ctermbg=Black              " Set colouring of cursor line
+highlight CursorLine ctermbg=0                  " Set colouring of cursor line
 
 set tabstop=8                                   " The width, in spaces, of a hard tabstop
 set softtabstop=0                               " Turn off softtabstop
@@ -89,10 +90,10 @@ set laststatus=2                                " Always show the statusline
 au BufNewFile,BufRead *.tpl :set filetype=php   " Use php syntax colouring for .tpl files
 
 " Open NERDTree automatically on vim startup if no file is specified
-autocmd StdinReadPre * let s:std_in=1
+autocmd StdinReadPre * let s:std_in = 1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-let NERDTreeShowHidden=1                        " Show hidden files in NERDTree
+let NERDTreeShowHidden = 1                      " Show hidden files in NERDTree
 let NERDTreeIgnore = ['\.swp$', '\.pyc$']       " NERDTree files to ignore
 map <C-n> :NERDTreeToggle<CR>                   " Shortcut to toggle NERDTree with <C-n>
 
