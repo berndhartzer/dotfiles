@@ -1,6 +1,6 @@
 " Start Vundle
-set nocompatible             " be iMproved, required
-filetype off                 " required
+set nocompatible                           " be iMproved, required 
+filetype off                               " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -25,8 +25,10 @@ Plugin 'tpope/vim-sleuth'                  " Auto detect and set indenting optio
 Plugin 'leafgarland/typescript-vim'
 Plugin 'pangloss/vim-javascript'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
+Plugin 'arcticicestudio/nord-vim'
+
+call vundle#end()                          " required
+filetype plugin indent on                  " required
 " End Vundle
 
 syntax enable                              " Syntax highlighting
@@ -77,7 +79,7 @@ autocmd StdinReadPre * let s:std_in = 1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 let NERDTreeShowHidden = 1                 " Show hidden files in NERDTree
-let NERDTreeIgnore = ['\.swp$', '\.pyc$']  " NERDTree files to ignore
+let NERDTreeIgnore = ['\.swp$', '\.pyc$', '\.git$', '\.class$']  " NERDTree files to ignore
 " Toggle NERDTree explorer with <C-n>
 map <C-n> :NERDTreeToggle<CR>
 
