@@ -11,16 +11,17 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Keep Plugin commands between vundle#begin/end.
 
-Plugin 'scrooloose/nerdtree'               " Tree file explorer
+" Plugin 'scrooloose/nerdtree'               " Tree file explorer
 " Plugin 'scrooloose/nerdcommenter'          " Powerful commenting
 " Plugin 'tpope/vim-commentary'              " Simple commenting
 Plugin 'jiangmiao/auto-pairs'              " Auto bracket or parens closing
-Plugin 'roman/golden-ratio'                " Auto window sizing
+Plugin 'roman/golden-ratio'                " Auto split sizing
 Plugin 'itchyny/lightline.vim'             " Statusline
-" Plugin 'gregsexton/MatchTag'             " Highlight matching html tags
+" Plugin 'gregsexton/MatchTag'               " Highlight matching html tags
 Plugin 'alvan/vim-closetag'                " Auto close html tags
 Plugin 'tpope/vim-sleuth'                  " Auto detect and set indenting options
 " Plugin 'joonty/vdebug'                     " Debugging
+Plugin 'ctrlpvim/ctrlp.vim'                " Fuzzy finder
 
 Plugin 'leafgarland/typescript-vim'
 Plugin 'pangloss/vim-javascript'
@@ -41,8 +42,6 @@ set incsearch                              " Incremental search; show search mat
 " Clear search with ,/
 nmap <silent> ,/ :nohlsearch<CR>
 
-" set termguicolors                          " 24 bit colour
-" set t_Co=256                               " Enable 256 colour mode
 colorscheme nord                           " Set colorscheme 
 
 set colorcolumn=80                         " 80 character column marker
@@ -75,13 +74,13 @@ set laststatus=2                           " Always show the statusline
 au BufNewFile,BufRead *.tpl :set filetype=php
 
 " Open NERDTree automatically on vim startup if no file is specified
-autocmd StdinReadPre * let s:std_in = 1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in = 1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-let NERDTreeShowHidden = 1                 " Show hidden files in NERDTree
-let NERDTreeIgnore = ['\.swp$', '\.pyc$', '\.git$', '\.class$']  " NERDTree files to ignore
+" let NERDTreeShowHidden = 1                 " Show hidden files in NERDTree
+" let NERDTreeIgnore = ['\.swp$', '\.pyc$', '\.git$', '\.class$']  " NERDTree files to ignore
 " Toggle NERDTree explorer with <C-n>
-map <C-n> :NERDTreeToggle<CR>
+" map <C-n> :NERDTreeToggle<CR>
 
 let g:closetag_filenames = "*.html,*.tpl"  " Auto close html tags in html and tpl files
                                                       
