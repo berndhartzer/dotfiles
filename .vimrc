@@ -1,36 +1,21 @@
-" Start Vundle
-set nocompatible                           " be iMproved, required 
-filetype off                               " required
+call plug#begin()                          " vim-plug begin
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Plug 'scrooloose/nerdtree'                 " Tree file explorer
+Plug 'jiangmiao/auto-pairs'                " Auto bracket or parens closing
+Plug 'roman/golden-ratio'                  " Auto split sizing
+Plug 'itchyny/lightline.vim'               " Statusline
+" Plug 'gregsexton/MatchTag'                 " Highlight matching html tags
+Plug 'alvan/vim-closetag'                  " Auto close html tags
+Plug 'tpope/vim-sleuth'                    " Auto detect and set indenting options
+" Plug 'joonty/vdebug'                       " Debugging
+Plug 'ctrlpvim/ctrlp.vim'                  " Fuzzy finder
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'leafgarland/typescript-vim'          " TypeScript
+Plug 'pangloss/vim-javascript'             " JavaScript
 
-" Keep Plugin commands between vundle#begin/end.
+Plug 'arcticicestudio/nord-vim'            " Nord colorscheme
 
-" Plugin 'scrooloose/nerdtree'               " Tree file explorer
-" Plugin 'scrooloose/nerdcommenter'          " Powerful commenting
-" Plugin 'tpope/vim-commentary'              " Simple commenting
-Plugin 'jiangmiao/auto-pairs'              " Auto bracket or parens closing
-Plugin 'roman/golden-ratio'                " Auto split sizing
-Plugin 'itchyny/lightline.vim'             " Statusline
-" Plugin 'gregsexton/MatchTag'               " Highlight matching html tags
-Plugin 'alvan/vim-closetag'                " Auto close html tags
-Plugin 'tpope/vim-sleuth'                  " Auto detect and set indenting options
-" Plugin 'joonty/vdebug'                     " Debugging
-Plugin 'ctrlpvim/ctrlp.vim'                " Fuzzy finder
-
-Plugin 'leafgarland/typescript-vim'
-Plugin 'pangloss/vim-javascript'
-
-Plugin 'arcticicestudio/nord-vim'
-
-call vundle#end()                          " required
-filetype plugin indent on                  " required
-" End Vundle
+call plug#end()                            " vim-plug end
 
 syntax enable                              " Syntax highlighting
 set nowrap                                 " No word wrapping at end of line
@@ -49,16 +34,8 @@ highlight ColorColumn ctermbg=0            " Set column marker colour
 set cursorline                             " Set highlighting of cursor line
 highlight CursorLine ctermbg=0             " Set colouring of cursor line
 
-" set tabstop=8                              " The width, in spaces, of a hard tabstop
-" set softtabstop=0                          " Turn off softtabstop
-" set expandtab                              " Make the tab key insert spaces
-" set shiftwidth=2                           " The size of an indent, in spaces
-" set smarttab                               " Make the tab key insert spaces or tabs to go to the next indent
-
 set backspace=indent,eol,start             " Make backspace behave 'normally'
 set autoindent                             " Auto indent on new line
-
-" set visualbell t_vb=                       " Don't beep or flash at me
 
 set scrolloff=20                           " Determine number of lines to keep above and below cursor where possible
 set relativenumber                         " Hybrid numbering - show relative line numbers
