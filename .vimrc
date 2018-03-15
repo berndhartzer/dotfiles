@@ -1,6 +1,6 @@
 call plug#begin()                          " vim-plug begin
 
-" Plug 'scrooloose/nerdtree'                 " Tree file explorer
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " Tree file explorer - load on demand
 Plug 'jiangmiao/auto-pairs'                " Auto bracket or parens closing
 Plug 'roman/golden-ratio'                  " Auto split sizing
 Plug 'itchyny/lightline.vim'               " Statusline
@@ -10,7 +10,7 @@ Plug 'tpope/vim-sleuth'                    " Auto detect and set indenting optio
 " Plug 'joonty/vdebug'                       " Debugging
 Plug 'ctrlpvim/ctrlp.vim'                  " Fuzzy finder
 
-Plug 'leafgarland/typescript-vim'          " TypeScript
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' } " TypeScript - load for typescript only
 Plug 'pangloss/vim-javascript'             " JavaScript
 
 Plug 'arcticicestudio/nord-vim'            " Nord colorscheme
@@ -50,14 +50,10 @@ set laststatus=2                           " Always show the statusline
 " Use php syntax colouring for .tpl files
 au BufNewFile,BufRead *.tpl :set filetype=php
 
-" Open NERDTree automatically on vim startup if no file is specified
-" autocmd StdinReadPre * let s:std_in = 1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" let NERDTreeShowHidden = 1                 " Show hidden files in NERDTree
-" let NERDTreeIgnore = ['\.swp$', '\.pyc$', '\.git$', '\.class$']  " NERDTree files to ignore
+let NERDTreeShowHidden = 1                 " Show hidden files in NERDTree
+let NERDTreeIgnore = ['\.swp$', '\.pyc$', '\.git$', '\.class$']  " NERDTree files to ignore
 " Toggle NERDTree explorer with <C-n>
-" map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 let g:closetag_filenames = "*.html,*.tpl"  " Auto close html tags in html and tpl files
                                                       
