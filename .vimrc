@@ -19,6 +19,13 @@ call plug#end()                            " vim-plug end
 
 syntax enable                              " Syntax highlighting
 set nowrap                                 " No word wrapping at end of line
+colorscheme nord                           " Set colorscheme
+
+set colorcolumn=80                         " 80 character column marker
+highlight ColorColumn ctermbg=0            " Set column marker colour
+set cursorline                             " Set highlighting of cursor line
+highlight CursorLine ctermbg=0             " Set colouring of cursor line
+set laststatus=2                           " Always show the statusline
 
 set ignorecase                             " Make searches case insensitive
 set smartcase                              " Searches only case sensitive when there is a capital letter
@@ -26,13 +33,6 @@ set hlsearch                               " Highlight search matches
 set incsearch                              " Incremental search; show search matches while typing
 " Clear search with ,/
 nmap <silent> ,/ :nohlsearch<CR>
-
-colorscheme nord                           " Set colorscheme 
-
-set colorcolumn=80                         " 80 character column marker
-highlight ColorColumn ctermbg=0            " Set column marker colour
-set cursorline                             " Set highlighting of cursor line
-highlight CursorLine ctermbg=0             " Set colouring of cursor line
 
 set backspace=indent,eol,start             " Make backspace behave 'normally'
 set autoindent                             " Auto indent on new line
@@ -44,8 +44,6 @@ set number                                 " Hybrid numbering - show cursor line
 autocmd InsertEnter * :set number norelativenumber
 " Show hybrid numbering in normal mode
 autocmd InsertLeave * :set relativenumber number
-
-set laststatus=2                           " Always show the statusline
 
 " Use php syntax colouring for .tpl files
 au BufNewFile,BufRead *.tpl :set filetype=php
