@@ -1,0 +1,7 @@
+brew "awscli"
+brew "git"
+brew "nvm"
+brew "the_silver_searcher"
+brew "tmux"
+brew "tree"
+brew "vim"
