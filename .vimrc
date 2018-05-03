@@ -1,6 +1,6 @@
 call plug#begin()                          " vim-plug begin
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " Tree file explorer - load on demand
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " Tree file explorer - load on demand
 Plug 'jiangmiao/auto-pairs'                " Auto bracket or parens closing
 Plug 'roman/golden-ratio'                  " Auto split sizing
 Plug 'itchyny/lightline.vim'               " Statusline
@@ -9,9 +9,11 @@ Plug 'alvan/vim-closetag'                  " Auto close html tags
 Plug 'tpope/vim-sleuth'                    " Auto detect and set indenting options
 " Plug 'joonty/vdebug'                       " Debugging
 Plug 'ctrlpvim/ctrlp.vim'                  " Fuzzy finder
+Plug 'tpope/vim-commentary'                " Code commenting
 
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' } " TypeScript - load for typescript only
 Plug 'pangloss/vim-javascript'             " JavaScript
+Plug 'hhvm/vim-hack', { 'for': 'php' }     " Hack
 
 Plug 'arcticicestudio/nord-vim'            " Nord colorscheme
 
@@ -20,6 +22,8 @@ call plug#end()                            " vim-plug end
 syntax enable                              " Syntax highlighting
 set nowrap                                 " No word wrapping at end of line
 colorscheme nord                           " Set colorscheme
+
+set regexpengine=1                         " Use old regex engine - faster
 
 set colorcolumn=80                         " 80 character column marker
 highlight ColorColumn ctermbg=0            " Set column marker colour
