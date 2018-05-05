@@ -51,7 +51,8 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # Checkout the content from the bare repository
 config checkout
 
-# The checkout might fail if any of the files already exist. If so; backup and/or remove as necessary and checkout again
+# The checkout might fail if any of the files already exist
+# If so; backup and/or remove as necessary and checkout again
 
 # Set the local showUntrackedFiles no flag
 config config --local status.showUntrackedFiles no
