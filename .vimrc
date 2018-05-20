@@ -21,7 +21,7 @@ call plug#end()                            " vim-plug end
 
 syntax enable                              " Syntax highlighting
 set nowrap                                 " No word wrapping at end of line
-colorscheme nord                           " Set colorscheme
+silent! colorscheme nord                   " Set colorscheme - don't prompt me on error
 
 set regexpengine=1                         " Use old regex engine - faster
 
@@ -66,3 +66,13 @@ let g:lightline = { 'colorscheme': 'jellybeans', 'component_function': { 'filena
 function! LightLineRelativePath()
   return expand('%')
 endfunction
+
+" Function used to trim whitespace while retaining view/searches
+function! TrimWhitespace()
+  let l:save = winsaveview()
+  %s/\s\+$//e
+  call winrestview(l:save)
+endfunction
+
+" Command used to call the TrimWhitespace function
+command! TrimWhitespace call TrimWhitespace()
