@@ -2,6 +2,14 @@
 
 My dotfiles, which are set up and managed using a bare git repository. I followed this guide to set it up: [The best way to store your dotfiles: A bare Git repository](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/).
 
+## Fresh installation
+
+To begin a fresh installation on new machine, run the `bin/install.sh` script. This can be done via url with curl:
+
+```bash
+bash <(curl -s https://raw.githubusercontent.com/berndhartzer/dotfiles/master/bin/install.sh)
+```
+
 ## Usage
 
 Use the `config` alias to interact with the repo.
