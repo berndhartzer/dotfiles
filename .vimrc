@@ -8,8 +8,10 @@ Plug 'itchyny/lightline.vim'               " Statusline
 Plug 'alvan/vim-closetag'                  " Auto close html tags
 Plug 'tpope/vim-sleuth'                    " Auto detect and set indenting options
 " Plug 'joonty/vdebug'                       " Debugging
-Plug 'ctrlpvim/ctrlp.vim'                  " Fuzzy finder
+" Plug 'ctrlpvim/ctrlp.vim'                  " Fuzzy finder
 Plug 'tpope/vim-commentary'                " Code commenting
+Plug '/usr/local/opt/fzf'                  " FZF
+Plug 'junegunn/fzf.vim'                    " Handy FZF vim wrapper
 
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' } " TypeScript - load for typescript only
 Plug 'pangloss/vim-javascript'             " JavaScript
