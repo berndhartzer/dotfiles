@@ -95,6 +95,10 @@ setup_fzf_linux() {
 
     echo "FZF..."
 
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+
+    echo -e "y\ny\nn\n" | ~/.fzf/install
+
     echo "FZF finished!"
 }
 
