@@ -84,6 +84,10 @@ setup_fzf() {
 
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
+    # Echo prompt responses into fzf install script
+    # Enable fuzzy auto-complete: y
+    # Enable key bindings: y
+    # Update shell config files: n
     echo -e "y\ny\nn\n" | ~/.fzf/install
 
     echo "FZF finished!"
