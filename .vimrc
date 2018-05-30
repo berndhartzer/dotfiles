@@ -60,7 +60,7 @@ let NERDTreeIgnore = ['\.swp$', '\.pyc$', '\.git$', '\.class$']  " NERDTree file
 map <C-n> :NERDTreeToggle<CR>
 
 let g:closetag_filenames = "*.html,*.tpl"  " Auto close html tags in html and tpl files
-                                                      
+
 " Configure lightline, including colorscheme and displaying relative paths
 let g:lightline = { 'colorscheme': 'jellybeans', 'component_function': { 'filename': 'LightLineRelativePath' } }
 
