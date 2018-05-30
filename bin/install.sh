@@ -78,6 +78,26 @@ setup_packages_linux() {
     echo "Packages finished!"
 }
 
+setup_fzf_macos() {
+
+    echo "FZF..."
+
+    # Echo prompt responses into fzf install script
+    # Enable fuzzy auto-complete: y
+    # Enable key bindings: y
+    # Update shell config files: n
+    echo -e "y\ny\nn\n" | $(brew --prefix)/opt/fzf/install
+
+    echo "FZF finished!"
+}
+
+setup_fzf_linux() {
+
+    echo "FZF..."
+
+    echo "FZF finished!"
+}
+
 setup_vim() {
 
     echo "Vim..."
@@ -111,6 +131,7 @@ bootstrap_macos() {
     setup_git_macos
     setup_dotfiles
     setup_homebrew_macos
+    setup_fzf_macos
     setup_vim
 
     echo "Finished set up on macOS!"
@@ -123,6 +144,7 @@ bootstrap_linux() {
     setup_git_linux
     setup_dotfiles
     setup_packages_linux
+    setup_fzf_linux
     setup_vim
 
     echo "Finished set up on Linux!"
