@@ -10,7 +10,7 @@ Plug 'tpope/vim-sleuth'                    " Auto detect and set indenting optio
 " Plug 'joonty/vdebug'                       " Debugging
 " Plug 'ctrlpvim/ctrlp.vim'                  " Fuzzy finder
 Plug 'tpope/vim-commentary'                " Code commenting
-Plug '/usr/local/opt/fzf'                  " FZF
+Plug '~/.fzf'                              " FZF
 Plug 'junegunn/fzf.vim'                    " Handy FZF vim wrapper
 
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' } " TypeScript - load for typescript only
