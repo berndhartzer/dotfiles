@@ -15,9 +15,12 @@ Plug 'junegunn/fzf.vim'                    " Handy FZF vim wrapper
 
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' } " TypeScript - load for typescript only
 Plug 'pangloss/vim-javascript'             " JavaScript
+Plug 'mxw/vim-jsx'                         " JSX
 Plug 'hhvm/vim-hack', { 'for': 'php' }     " Hack
 
 Plug 'arcticicestudio/nord-vim'            " Nord colorscheme
+
+" Plug '~/dev/golden-ratio'
 
 call plug#end()                            " vim-plug end
 
@@ -42,6 +45,7 @@ nmap <silent> ,/ :nohlsearch<CR>
 
 set backspace=indent,eol,start             " Make backspace behave 'normally'
 set autoindent                             " Auto indent on new line
+set splitright                             " Open splits to the right
 
 set scrolloff=20                           " Determine number of lines to keep above and below cursor where possible
 set relativenumber                         " Hybrid numbering - show relative line numbers
@@ -78,3 +82,7 @@ endfunction
 
 " Command used to call the TrimWhitespace function
 command! TrimWhitespace call TrimWhitespace()
+
+" FZF
+" nnoremap <leader>ff :GFiles<cr>
+" nnoremap <leader>fb :Buffers<cr>
