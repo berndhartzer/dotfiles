@@ -4,11 +4,9 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " Tree file explorer - lo
 Plug 'jiangmiao/auto-pairs'                " Auto bracket or parens closing
 Plug 'roman/golden-ratio'                  " Auto split sizing
 Plug 'itchyny/lightline.vim'               " Statusline
-" Plug 'gregsexton/MatchTag'                 " Highlight matching html tags
 Plug 'alvan/vim-closetag'                  " Auto close html tags
 Plug 'tpope/vim-sleuth'                    " Auto detect and set indenting options
 " Plug 'joonty/vdebug'                       " Debugging
-" Plug 'ctrlpvim/ctrlp.vim'                  " Fuzzy finder
 Plug 'tpope/vim-commentary'                " Code commenting
 Plug '~/.fzf'                              " FZF
 Plug 'junegunn/fzf.vim'                    " Handy FZF vim wrapper
@@ -47,7 +45,7 @@ set backspace=indent,eol,start             " Make backspace behave 'normally'
 set autoindent                             " Auto indent on new line
 set splitright                             " Open splits to the right
 
-set scrolloff=20                           " Determine number of lines to keep above and below cursor where possible
+set scrolloff=20                           " Number of lines to keep above and below cursor where possible
 set relativenumber                         " Hybrid numbering - show relative line numbers
 set number                                 " Hybrid numbering - show cursor line number
 " Show absolute numbers in insert mode
