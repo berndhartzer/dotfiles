@@ -5,3 +5,6 @@
 [alias]
 	# List files on the current branch which have been changed from the target branch
 	brdiff = !sh -c 'git diff --name-only "$1"' -
+
+[diff]
+	tool = vimdiff
