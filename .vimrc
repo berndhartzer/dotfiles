@@ -1,6 +1,6 @@
 call plug#begin()                          " vim-plug begin
 
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " Tree file explorer - load on demand
+" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " Tree file explorer - load on demand
 Plug 'jiangmiao/auto-pairs'                " Auto bracket or parens closing
 Plug 'roman/golden-ratio'                  " Auto split sizing
 Plug 'itchyny/lightline.vim'               " Statusline
@@ -30,8 +30,6 @@ set regexpengine=1                         " Use old regex engine - faster
 
 set colorcolumn=80                         " 80 character column marker
 highlight ColorColumn ctermbg=0            " Set column marker colour
-set cursorline                             " Set highlighting of cursor line
-highlight CursorLine ctermbg=0             " Set colouring of cursor line
 set laststatus=2                           " Always show the statusline
 
 set ignorecase                             " Make searches case insensitive
@@ -57,7 +55,7 @@ autocmd InsertLeave * :set relativenumber number
 au BufNewFile,BufRead *.tpl :set filetype=php
 
 let NERDTreeShowHidden = 1                 " Show hidden files in NERDTree
-let NERDTreeIgnore = ['\.swp$', '\.pyc$', '\.git$', '\.class$']  " NERDTree files to ignore
+let NERDTreeIgnore = ['\.swp$', '\.pyc$', '\.git$', '\.class$'] " NERDTree files to ignore
 " Toggle NERDTree explorer with <C-n>
 map <C-n> :NERDTreeToggle<CR>
 
