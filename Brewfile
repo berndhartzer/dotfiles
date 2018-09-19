@@ -1,3 +1,6 @@
+cask_args appdir: "/Applications"
+tap "homebrew/cask"
+
 brew "awscli"
 brew "git"
 brew "nvm"
@@ -5,3 +8,11 @@ brew "the_silver_searcher"
 brew "tmux"
 brew "tree"
 brew "vim"
+
+cask "atom"
+cask "docker"
+cask "firefox"
+cask "google-chrome"
+cask "iterm2"
+cask "sequel-pro"
+cask "slack"
