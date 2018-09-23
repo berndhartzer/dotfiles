@@ -2,7 +2,8 @@ call plug#begin()                          " vim-plug begin
 
 " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " Tree file explorer - load on demand
 Plug 'jiangmiao/auto-pairs'                " Auto bracket or parens closing
-Plug 'roman/golden-ratio'                  " Auto split sizing
+" Plug 'roman/golden-ratio'                  " Auto split sizing
+Plug 'berndhartzer/golden-ratio', { 'branch': 'no-horizontal-resize' }
 Plug 'itchyny/lightline.vim'               " Statusline
 Plug 'alvan/vim-closetag'                  " Auto close html tags
 Plug 'tpope/vim-sleuth'                    " Auto detect and set indenting options
@@ -82,3 +83,5 @@ command! TrimWhitespace call TrimWhitespace()
 " FZF
 " nnoremap <leader>ff :GFiles<cr>
 " nnoremap <leader>fb :Buffers<cr>
+
+let g:golden_ratio_resize_horizontal = 0   " Quick fix for disabling golden-ratio horizontal resizing
