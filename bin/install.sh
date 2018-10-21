@@ -38,6 +38,7 @@ setup_dotfiles() {
     fi
 
     mkdir -p .dotfiles-backup
+    mkdir -p .dotfiles-backup/bin
 
     config checkout
 
