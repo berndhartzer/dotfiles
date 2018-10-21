@@ -43,7 +43,7 @@ setup_dotfiles() {
 
     if [ $? != 0 ]; then
         echo "Backing up existing dotfiles...";
-        config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
+        config checkout 2>&1 | egrep "^[[:space:]]" | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
     fi;
 
     config checkout
