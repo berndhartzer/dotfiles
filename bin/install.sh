@@ -112,6 +112,22 @@ setup_vim() {
     echo "Vim finished!"
 }
 
+setup_tmux() {
+
+    echo "Tmux..."
+
+    if [ ! -d ~/.tmux/plugins/tpm ]; then
+        echo "Installing tpm..."
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    fi
+
+    echo "Installing tmux plugins..."
+    ~/.tmux/plugins/tpm/bin/install_plugins
+    ~/.tmux/plugins/tpm/bin/update_plugins all
+
+    echo "Tmux finished!"
+}
+
 install_homebrew_macos() {
 
     if ! which brew > /dev/null 2>&1; then
@@ -132,6 +148,7 @@ bootstrap_macos() {
     setup_homebrew_macos
     setup_fzf
     setup_vim
+    setup_tmux
 
     echo "Finished set up on macOS!"
 }
@@ -145,6 +162,7 @@ bootstrap_linux() {
     setup_packages_linux
     setup_fzf
     setup_vim
+    setup_tmux
 
     echo "Finished set up on Linux!"
 }
