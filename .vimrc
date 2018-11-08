@@ -50,38 +50,33 @@ autocmd InsertEnter * :set number norelativenumber
 " Show hybrid numbering in normal mode
 autocmd InsertLeave * :set relativenumber number
 
-" Clear search with ,/
-nmap <silent> ,/ :nohlsearch<CR>
+let mapleader = "\<Space>"
+
+" Clear search
+nmap <silent> <leader>/ :nohlsearch<CR>
 
 " FZF
 nnoremap <leader>ff :GFiles<cr>
 nnoremap <leader>fb :Buffers<cr>
 nnoremap <leader>ag :Ag<cr>
 
+" ALE
+nnoremap <leader>an :ALENext<cr>
+
 let g:closetag_filenames = "*.html,*.tpl"  " Auto close html tags in html and tpl files
 
 let g:golden_ratio_resize_horizontal = 0   " Quick fix for disabling golden-ratio horizontal resizing
 
-" let g:ale_lint_on_text_changed = 'never'   " Ale Only lint on file save
+let g:ale_lint_on_text_changed = 'never'   " Ale Only lint on file save
 let g:ale_set_signs = 0                    " Ale Dont show lint errors in gutter
 
 " Configure lightline, including colorscheme and displaying relative paths
 let g:lightline = { 'colorscheme': 'jellybeans', 'component_function': { 'filename': 'LightLineRelativePath' } }
-
-" Use php syntax colouring for .tpl files
-au BufNewFile,BufRead *.tpl :set filetype=php
 
 " Function used by lightline to display relative path names for files
 function! LightLineRelativePath()
   return expand('%')
 endfunction
 
-" Function used to trim whitespace while retaining view/searches
-function! TrimWhitespace()
-  let l:save = winsaveview()
-  %s/\s\+$//e
-  call winrestview(l:save)
-endfunction
-
-" Command used to call the TrimWhitespace function
-command! TrimWhitespace call TrimWhitespace()
+" Use php syntax colouring for .tpl files
+au BufNewFile,BufRead *.tpl :set filetype=php
