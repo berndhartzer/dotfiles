@@ -81,3 +81,17 @@ endfunction
 
 " Use php syntax colouring for .tpl files
 au BufNewFile,BufRead *.tpl :set filetype=php
+
+" Git blame
+command! -nargs=* Blame call s:GitBlame()
+
+function! s:GitBlame()
+    let cmd = "git blame -w " . bufname("%")
+    let nline = line(".") + 1
+    botright new
+    execute "$read !" . cmd
+    execute "normal " . nline . "gg"
+    execute "set filetype=perl"
+endfunction
+
+nnoremap <leader>gb :Blame<cr>
