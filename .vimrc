@@ -27,7 +27,7 @@ syntax enable                              " Syntax highlighting
 set nowrap                                 " No word wrapping at end of line
 silent! colorscheme nord                   " Set colorscheme - don't prompt me on error
 
-set regexpengine=1                         " Use old regex engine - faster
+" set regexpengine=1                         " Use old regex engine - faster
 
 set colorcolumn=80,100                     " 80, 100 character column marker
 highlight ColorColumn ctermbg=0            " Set column marker colour
@@ -56,9 +56,10 @@ let mapleader = "\<Space>"
 nmap <silent> <leader>/ :nohlsearch<CR>
 
 " FZF
-nnoremap <leader>ff :GFiles<cr>
-nnoremap <leader>fb :Buffers<cr>
-nnoremap <leader>ag :Ag<cr>
+nnoremap <leader>f :GFiles<cr>
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>ag :Ag<Space>
+nnoremap <leader>gr :Ag <C-r><C-w><cr>
 
 " ALE
 nnoremap <leader>an :ALENext<cr>
