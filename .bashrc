@@ -27,3 +27,19 @@ vim-find-multi() {
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 # [ -f /Users/berndhartzer/dev/serverless/node_modules/tabtab/.completions/sls.bash ] && . /Users/berndhartzer/dev/serverless/node_modules/tabtab/.completions/sls.bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(direnv hook bash)"
+
+# fun-settings
+export MY_PUBLIC_KEY=F12460D6-F403-B475-92AF-D651B45BD865
+
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[ -f /Users/berndhartzer/dev/funcaptcha/src/web/game3-nojs/node_modules/tabtab/.completions/slss.bash ] && . /Users/berndhartzer/dev/funcaptcha/src/web/game3-nojs/node_modules/tabtab/.completions/slss.bash
+
+# hub alias
+eval "$(hub alias -s)"
