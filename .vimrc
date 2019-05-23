@@ -10,7 +10,6 @@ Plug 'tpope/vim-commentary'                " Code commenting
 Plug 'tpope/vim-vinegar'                   " Improvements for netrw
 Plug '~/.fzf'                              " FZF
 Plug 'junegunn/fzf.vim'                    " Handy FZF vim wrapper
-Plug 'w0rp/ale'                            " Async linting
 
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' } " TypeScript - load for typescript only
 Plug 'pangloss/vim-javascript'             " JavaScript
@@ -26,8 +25,6 @@ call plug#end()                            " vim-plug end
 syntax enable                              " Syntax highlighting
 set nowrap                                 " No word wrapping at end of line
 silent! colorscheme nord                   " Set colorscheme - don't prompt me on error
-
-" set regexpengine=1                         " Use old regex engine - faster
 
 set colorcolumn=80,100                     " 80, 100 character column marker
 highlight ColorColumn ctermbg=0            " Set column marker colour
@@ -62,7 +59,7 @@ nnoremap <leader>ag :Ag<Space>
 nnoremap <leader>gr :Ag <C-r><C-w><cr>
 
 " ALE
-nnoremap <leader>an :ALENext<cr>
+" nnoremap <leader>an :ALENext<cr>
 
 let g:closetag_filenames = "*.html,*.tpl"  " Auto close html tags in html and tpl files
 
@@ -87,11 +84,15 @@ command! -nargs=* Blame call s:GitBlame()
 
 function! s:GitBlame()
     let cmd = "git blame -w " . bufname("%")
-    let nline = line(".") + 1
+    let nline = line(".")
     botright new
     execute "$read !" . cmd
+    execute "1d"
     execute "normal " . nline . "gg"
     execute "set filetype=perl"
+    execute "set buftype=nowrite"
 endfunction
 
 nnoremap <leader>gb :Blame<cr>
+
+" command! -range GB echo join(systemlist("git blame -L <line1>,<line2> " . expand('%')), "\n")
