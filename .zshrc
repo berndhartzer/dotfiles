@@ -1,5 +1,5 @@
 # Prompt
-export PS1="$(hostname) ; "
+export PS1="%n[%j] %B%~%b $ "
 
 # Don't put duplicate lines or lines starting with whitespace in history
 HISTCONTROL=ignoreboth
