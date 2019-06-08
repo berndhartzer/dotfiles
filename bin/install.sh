@@ -81,8 +81,10 @@ setup_packages_linux() {
 
 setup_fzf() {
 
-    echo "FZF..."
+    echo "fzf..."
 
+    # Manually install fzf to ~/.fzf instead of using brew for ease of adding
+    # fzf dir to vim
     if [ ! -d ~/.fzf ]; then
 
         git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -94,7 +96,7 @@ setup_fzf() {
         echo -e "y\ny\nn\n" | ~/.fzf/install
     fi
 
-    echo "FZF finished!"
+    echo "fzf finished!"
 }
 
 setup_vim() {

@@ -8,6 +8,7 @@ brew "the_silver_searcher"
 brew "tmux"
 brew "tree"
 brew "vim"
+brew "zsh"
 
 cask "atom"
 cask "docker"
