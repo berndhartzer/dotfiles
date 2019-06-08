@@ -6,7 +6,6 @@ function config() {
 }
 
 setup_git_macos() {
-
     echo "Git..."
 
     install_homebrew_macos
@@ -16,7 +15,6 @@ setup_git_macos() {
 }
 
 setup_git_linux() {
-
     echo "Git..."
 
     sudo apt-get -qq update
@@ -26,7 +24,6 @@ setup_git_linux() {
 }
 
 setup_dotfiles() {
-
     echo "Dotfiles..."
 
     # Check if repo is already present
@@ -54,7 +51,6 @@ setup_dotfiles() {
 }
 
 setup_homebrew_macos() {
-
     echo "Homebrew..."
 
     install_homebrew_macos
@@ -71,16 +67,14 @@ setup_homebrew_macos() {
 }
 
 setup_packages_linux() {
-
     echo "Packages..."
 
-    sudo apt-get -qq install awscli git tmux tree vim
+    sudo apt-get -qq install awscli git tmux tree vim zsh
 
     echo "Packages finished!"
 }
 
 setup_fzf() {
-
     echo "fzf..."
 
     # Manually install fzf to ~/.fzf instead of using brew for ease of adding
@@ -100,7 +94,6 @@ setup_fzf() {
 }
 
 setup_vim() {
-
     echo "Vim..."
 
     if [ ! -f ~/.vim/autoload/plug.vim ]; then
@@ -115,7 +108,6 @@ setup_vim() {
 }
 
 setup_tmux() {
-
     echo "Tmux..."
 
     if [ ! -d ~/.tmux/plugins/tpm ]; then
@@ -131,7 +123,6 @@ setup_tmux() {
 }
 
 install_homebrew_macos() {
-
     if ! which brew > /dev/null 2>&1; then
         echo "Installing Homebrew..."
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -141,8 +132,22 @@ install_homebrew_macos() {
     brew update
 }
 
-bootstrap_macos() {
+setup_zsh() {
+    echo "zsh..."
 
+    # Add to /etc/shells if its not there
+    if ! cat /etc/shells | grep "$1"; then
+        echo "Adding $1 to /etc/shells"
+        echo $1 | sudo tee -a /etc/shells > /dev/null
+    fi
+
+    # Set shell
+    chsh -s $1
+
+    echo "zsh finished!"
+}
+
+bootstrap_macos() {
     echo "Beginning set up on macOS..."
 
     setup_git_macos
@@ -151,12 +156,12 @@ bootstrap_macos() {
     setup_fzf
     setup_vim
     setup_tmux
+    setup_zsh $(brew --prefix)/bin/zsh
 
     echo "Finished set up on macOS!"
 }
 
 bootstrap_linux() {
-
     echo "Beginning set up on Linux..."
 
     setup_git_linux
@@ -165,6 +170,7 @@ bootstrap_linux() {
     setup_fzf
     setup_vim
     setup_tmux
+    setup_zsh $(which zsh)
 
     echo "Finished set up on Linux!"
 }
