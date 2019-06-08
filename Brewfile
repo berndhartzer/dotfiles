@@ -2,6 +2,7 @@ cask_args appdir: "/Applications"
 tap "homebrew/cask"
 
 brew "awscli"
+brew "direnv"
 brew "git"
 brew "nvm"
 brew "the_silver_searcher"

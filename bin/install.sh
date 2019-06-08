@@ -69,7 +69,7 @@ setup_homebrew_macos() {
 setup_packages_linux() {
     echo "Packages..."
 
-    sudo apt-get -qq install awscli git tmux tree vim zsh
+    sudo apt-get -qq install awscli git tmux tree vim zsh direnv
 
     echo "Packages finished!"
 }
