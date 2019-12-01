@@ -11,10 +11,10 @@ Plug 'tpope/vim-vinegar'                   " Improvements for netrw
 Plug '~/.fzf'                              " FZF
 Plug 'junegunn/fzf.vim'                    " Handy FZF vim wrapper
 
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' } " TypeScript - load for typescript only
+" Plug 'leafgarland/typescript-vim', { 'for': 'typescript' } " TypeScript - load for typescript only
 Plug 'pangloss/vim-javascript'             " JavaScript
 Plug 'mxw/vim-jsx'                         " JSX
-Plug 'hhvm/vim-hack', { 'for': 'php' }     " Hack
+" Plug 'hhvm/vim-hack', { 'for': 'php' }     " Hack
 
 Plug 'arcticicestudio/nord-vim'            " Nord colorscheme
 
@@ -40,12 +40,12 @@ set autoindent                             " Auto indent on new line
 set splitright                             " Open splits to the right
 
 set scrolloff=20                           " Number of lines to keep above and below cursor where possible
-set relativenumber                         " Hybrid numbering - show relative line numbers
+" set relativenumber                         " Hybrid numbering - show relative line numbers
 set number                                 " Hybrid numbering - show cursor line number
 " Show absolute numbers in insert mode
-autocmd InsertEnter * :set number norelativenumber
+" autocmd InsertEnter * :set number norelativenumber
 " Show hybrid numbering in normal mode
-autocmd InsertLeave * :set relativenumber number
+" autocmd InsertLeave * :set relativenumber number
 
 let mapleader = "\<Space>"
 
@@ -58,15 +58,9 @@ nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>ag :Ag<Space>
 nnoremap <leader>gr :Ag <C-r><C-w><cr>
 
-" ALE
-" nnoremap <leader>an :ALENext<cr>
-
 let g:closetag_filenames = "*.html,*.tpl"  " Auto close html tags in html and tpl files
 
 let g:golden_ratio_resize_horizontal = 0   " Quick fix for disabling golden-ratio horizontal resizing
-
-let g:ale_lint_on_text_changed = 'never'   " Ale Only lint on file save
-let g:ale_set_signs = 0                    " Ale Dont show lint errors in gutter
 
 " Configure lightline, including colorscheme and displaying relative paths
 let g:lightline = { 'colorscheme': 'jellybeans', 'component_function': { 'filename': 'LightLineRelativePath' } }
@@ -94,5 +88,3 @@ function! s:GitBlame()
 endfunction
 
 nnoremap <leader>gb :Blame<cr>
-
-" command! -range GB echo join(systemlist("git blame -L <line1>,<line2> " . expand('%')), "\n")
