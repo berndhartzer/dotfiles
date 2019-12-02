@@ -13,3 +13,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PATH="/anaconda/bin:$PATH"
+
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
