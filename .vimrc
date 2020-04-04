@@ -11,9 +11,8 @@ Plug 'tpope/vim-vinegar'                   " Improvements for netrw
 Plug '~/.fzf'                              " FZF
 Plug 'junegunn/fzf.vim'                    " Handy FZF vim wrapper
 
-" Plug 'leafgarland/typescript-vim', { 'for': 'typescript' } " TypeScript - load for typescript only
 Plug 'pangloss/vim-javascript'             " JavaScript
-Plug 'mxw/vim-jsx'                         " JSX
+" Plug 'mxw/vim-jsx'                         " JSX
 " Plug 'hhvm/vim-hack', { 'for': 'php' }     " Hack
 
 Plug 'arcticicestudio/nord-vim'            " Nord colorscheme
@@ -40,12 +39,7 @@ set autoindent                             " Auto indent on new line
 set splitright                             " Open splits to the right
 
 set scrolloff=20                           " Number of lines to keep above and below cursor where possible
-" set relativenumber                         " Hybrid numbering - show relative line numbers
 set number                                 " Hybrid numbering - show cursor line number
-" Show absolute numbers in insert mode
-" autocmd InsertEnter * :set number norelativenumber
-" Show hybrid numbering in normal mode
-" autocmd InsertLeave * :set relativenumber number
 
 let mapleader = "\<Space>"
 
