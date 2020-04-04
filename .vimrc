@@ -49,6 +49,7 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 " FZF
 nnoremap <leader>f :GFiles<cr>
 nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>: :History:<cr>
 nnoremap <leader>ag :Ag<Space>
 nnoremap <leader>gr :Ag <C-r><C-w><cr>
 
