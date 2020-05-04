@@ -4,7 +4,7 @@ Plug 'jiangmiao/auto-pairs'                " Auto bracket or parens closing
 " Plug 'roman/golden-ratio'                  " Auto split sizing
 Plug 'berndhartzer/golden-ratio', { 'branch': 'no-horizontal-resize' }
 Plug 'itchyny/lightline.vim'               " Statusline
-Plug 'alvan/vim-closetag'                  " Auto close html tags
+" Plug 'alvan/vim-closetag'                  " Auto close html tags
 Plug 'tpope/vim-sleuth'                    " Auto detect and set indenting options
 Plug 'tpope/vim-commentary'                " Code commenting
 Plug 'tpope/vim-vinegar'                   " Improvements for netrw
@@ -39,7 +39,7 @@ set autoindent                             " Auto indent on new line
 set splitright                             " Open splits to the right
 
 set scrolloff=20                           " Number of lines to keep above and below cursor where possible
-set number                                 " Hybrid numbering - show cursor line number
+set number                                 " Show line numbers
 
 let mapleader = "\<Space>"
 
@@ -53,7 +53,7 @@ nnoremap <leader>: :History:<cr>
 nnoremap <leader>ag :Ag<Space>
 nnoremap <leader>gr :Ag <C-r><C-w><cr>
 
-let g:closetag_filenames = "*.html,*.tpl"  " Auto close html tags in html and tpl files
+" let g:closetag_filenames = "*.html,*.tpl"  " Auto close html tags in html and tpl files
 
 let g:golden_ratio_resize_horizontal = 0   " Quick fix for disabling golden-ratio horizontal resizing
 
