@@ -4,16 +4,13 @@ Plug 'jiangmiao/auto-pairs'                " Auto bracket or parens closing
 " Plug 'roman/golden-ratio'                  " Auto split sizing
 Plug 'berndhartzer/golden-ratio', { 'branch': 'no-horizontal-resize' }
 Plug 'itchyny/lightline.vim'               " Statusline
-" Plug 'alvan/vim-closetag'                  " Auto close html tags
 Plug 'tpope/vim-sleuth'                    " Auto detect and set indenting options
 Plug 'tpope/vim-commentary'                " Code commenting
 Plug 'tpope/vim-vinegar'                   " Improvements for netrw
-Plug '~/.fzf'                              " FZF
-Plug 'junegunn/fzf.vim'                    " Handy FZF vim wrapper
+Plug '~/.fzf'                              " fzf
+Plug 'junegunn/fzf.vim'                    " Handy fzf vim wrapper
 
 Plug 'pangloss/vim-javascript'             " JavaScript
-" Plug 'mxw/vim-jsx'                         " JSX
-" Plug 'hhvm/vim-hack', { 'for': 'php' }     " Hack
 
 Plug 'arcticicestudio/nord-vim'            " Nord colorscheme
 
@@ -46,14 +43,12 @@ let mapleader = "\<Space>"
 " Clear search
 nmap <silent> <leader>/ :nohlsearch<CR>
 
-" FZF
+" fzf
 nnoremap <leader>f :GFiles<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>: :History:<cr>
 nnoremap <leader>ag :Ag<Space>
 nnoremap <leader>gr :Ag <C-r><C-w><cr>
-
-" let g:closetag_filenames = "*.html,*.tpl"  " Auto close html tags in html and tpl files
 
 let g:golden_ratio_resize_horizontal = 0   " Quick fix for disabling golden-ratio horizontal resizing
 
@@ -64,9 +59,6 @@ let g:lightline = { 'colorscheme': 'jellybeans', 'component_function': { 'filena
 function! LightLineRelativePath()
   return expand('%')
 endfunction
-
-" Use php syntax colouring for .tpl files
-au BufNewFile,BufRead *.tpl :set filetype=php
 
 " Git blame
 command! -nargs=* Blame call s:GitBlame()
