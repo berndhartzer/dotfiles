@@ -3,15 +3,11 @@ call plug#begin()                          " vim-plug begin
 Plug 'jiangmiao/auto-pairs'                " Auto bracket or parens closing
 " Plug 'roman/golden-ratio'                  " Auto split sizing
 Plug 'berndhartzer/golden-ratio', { 'branch': 'no-horizontal-resize' }
-Plug 'itchyny/lightline.vim'               " Statusline
 Plug 'tpope/vim-sleuth'                    " Auto detect and set indenting options
 Plug 'tpope/vim-commentary'                " Code commenting
 Plug 'tpope/vim-vinegar'                   " Improvements for netrw
 Plug '~/.fzf'                              " fzf
 Plug 'junegunn/fzf.vim'                    " Handy fzf vim wrapper
-
-Plug 'pangloss/vim-javascript'             " JavaScript
-
 Plug 'arcticicestudio/nord-vim'            " Nord colorscheme
 
 " Plug '~/dev/golden-ratio'
@@ -25,6 +21,8 @@ silent! colorscheme nord                   " Set colorscheme - don't prompt me o
 set colorcolumn=80,100                     " 80, 100 character column marker
 highlight ColorColumn ctermbg=0            " Set column marker colour
 set laststatus=2                           " Always show the statusline
+set statusline=\ %{FileRelativePath()}     " Statusline contents
+highlight StatusLine ctermfg=7             " Statusline text white
 
 set ignorecase                             " Make searches case insensitive
 set smartcase                              " Searches only case sensitive when there is a capital letter
@@ -52,12 +50,9 @@ nnoremap <leader>gr :Ag <C-r><C-w><cr>
 
 let g:golden_ratio_resize_horizontal = 0   " Quick fix for disabling golden-ratio horizontal resizing
 
-" Configure lightline, including colorscheme and displaying relative paths
-let g:lightline = { 'colorscheme': 'jellybeans', 'component_function': { 'filename': 'LightLineRelativePath' } }
-
-" Function used by lightline to display relative path names for files
-function! LightLineRelativePath()
-  return expand('%')
+" Get the relative path of a file
+function! FileRelativePath()
+  return fnamemodify(expand("%"), ":~:.")
 endfunction
 
 " Git blame
