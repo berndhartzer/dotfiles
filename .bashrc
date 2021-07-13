@@ -35,7 +35,7 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(direnv hook bash)"
 
 # fun-settings
-export MY_PUBLIC_KEY=F12460D6-F403-B475-92AF-D651B45BD865
+export MY_PUBLIC_KEY=
 
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`

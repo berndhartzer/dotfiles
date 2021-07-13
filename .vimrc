@@ -3,21 +3,15 @@ call plug#begin()                          " vim-plug begin
 Plug 'jiangmiao/auto-pairs'                " Auto bracket or parens closing
 " Plug 'roman/golden-ratio'                  " Auto split sizing
 Plug 'berndhartzer/golden-ratio', { 'branch': 'no-horizontal-resize' }
-Plug 'itchyny/lightline.vim'               " Statusline
 Plug 'alvan/vim-closetag'                  " Auto close html tags
 Plug 'tpope/vim-sleuth'                    " Auto detect and set indenting options
 Plug 'tpope/vim-commentary'                " Code commenting
 Plug 'tpope/vim-vinegar'                   " Improvements for netrw
 Plug '~/.fzf'                              " FZF
 Plug 'junegunn/fzf.vim'                    " Handy FZF vim wrapper
-Plug 'w0rp/ale'                            " Async linting
-
-Plug 'pangloss/vim-javascript'             " JavaScript
-" Plug 'mxw/vim-jsx'                         " JSX
+Plug 'knsh14/vim-github-link'              " GitHub links
 
 Plug 'arcticicestudio/nord-vim'            " Nord colorscheme
-
-" Plug '~/dev/golden-ratio'
 
 call plug#end()                            " vim-plug end
 
@@ -25,11 +19,11 @@ syntax enable                              " Syntax highlighting
 set nowrap                                 " No word wrapping at end of line
 silent! colorscheme nord                   " Set colorscheme - don't prompt me on error
 
-set regexpengine=1                         " Use old regex engine - faster
-
-set colorcolumn=80,100                     " 80, 100 character column marker
+set colorcolumn=80,100,120                 " 80, 100 character column marker
 highlight ColorColumn ctermbg=0            " Set column marker colour
 set laststatus=2                           " Always show the statusline
+highlight StatusLine ctermfg=7
+set statusline+=\ %{FileRelativePath()}
 
 set ignorecase                             " Make searches case insensitive
 set smartcase                              " Searches only case sensitive when there is a capital letter
@@ -55,26 +49,14 @@ nnoremap <leader>: :History:<cr>
 nnoremap <leader>ag :Ag<Space>
 nnoremap <leader>gr :Ag<Space><C-r><C-w><cr>
 
-" ALE
-nnoremap <leader>an :ALENext<cr>
-
 let g:closetag_filenames = "*.html,*.tpl"  " Auto close html tags in html and tpl files
 
 let g:golden_ratio_resize_horizontal = 0   " Quick fix for disabling golden-ratio horizontal resizing
 
-let g:ale_lint_on_text_changed = 'never'   " Ale Only lint on file save
-let g:ale_set_signs = 0                    " Ale Dont show lint errors in gutter
-
-" Configure lightline, including colorscheme and displaying relative paths
-let g:lightline = { 'colorscheme': 'jellybeans', 'component_function': { 'filename': 'LightLineRelativePath' } }
-
-" Function used by lightline to display relative path names for files
-function! LightLineRelativePath()
-  return expand('%')
+" Get the relative path of a file
+function! FileRelativePath()
+  return fnamemodify(expand("%"), ":~:.")
 endfunction
-
-" Use php syntax colouring for .tpl files
-au BufNewFile,BufRead *.tpl :set filetype=php
 
 augroup PHP
   autocmd!
