@@ -56,14 +56,14 @@ endfunction
 command! -nargs=* Blame call s:GitBlame()
 
 function! s:GitBlame()
-    let cmd = "git blame -w " . bufname("%")
-    let nline = line(".")
-    botright new
-    execute "$read !" . cmd
-    execute "1d"
-    execute "normal " . nline . "gg"
-    execute "set filetype=perl"
-    execute "set buftype=nowrite"
+  let cmd = "git blame -w " . bufname("%")
+  let nline = line(".")
+  botright new
+  execute "$read !" . cmd
+  execute "1d"
+  execute "normal " . nline . "gg"
+  execute "set filetype=perl"
+  execute "set buftype=nowrite"
 endfunction
 
 nnoremap <leader>gb :Blame<cr>
