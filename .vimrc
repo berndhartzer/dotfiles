@@ -68,9 +68,11 @@ endfunction
 
 nnoremap <leader>gb :Blame<cr>
 
-" Window resizing
+" Window resizing. Window width should be 2/3 of the screen size, or at least
+" 120 columns wide
 function! s:ResizeWindows()
-  set winwidth=120
+  let wmax = max([float2nr(&columns*0.66), 120])
+  execute "set winwidth=".wmax
   " Make other windows sizes equal in remaining space
   wincmd =
 endfunction
