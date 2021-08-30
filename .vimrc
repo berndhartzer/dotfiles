@@ -1,16 +1,13 @@
 call plug#begin()                          " vim-plug begin
 
 Plug 'jiangmiao/auto-pairs'                " Auto bracket or parens closing
-" Plug 'roman/golden-ratio'                  " Auto split sizing
-Plug 'berndhartzer/golden-ratio', { 'branch': 'no-horizontal-resize' }
 Plug 'tpope/vim-sleuth'                    " Auto detect and set indenting options
 Plug 'tpope/vim-commentary'                " Code commenting
 Plug 'tpope/vim-vinegar'                   " Improvements for netrw
 Plug '~/.fzf'                              " fzf
 Plug 'junegunn/fzf.vim'                    " Handy fzf vim wrapper
 Plug 'arcticicestudio/nord-vim'            " Nord colorscheme
-
-" Plug '~/dev/golden-ratio'
+Plug 'knsh14/vim-github-link'              " Links for GitHub
 
 call plug#end()                            " vim-plug end
 
@@ -36,6 +33,8 @@ set splitright                             " Open splits to the right
 set scrolloff=20                           " Number of lines to keep above and below cursor where possible
 set number                                 " Show line numbers
 
+set belloff=all                            " Dont beep at me
+
 let mapleader = "\<Space>"
 
 " Clear search
@@ -47,8 +46,6 @@ nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>: :History:<cr>
 nnoremap <leader>ag :Ag<Space>
 nnoremap <leader>gr :Ag <C-r><C-w><cr>
-
-let g:golden_ratio_resize_horizontal = 0   " Quick fix for disabling golden-ratio horizontal resizing
 
 " Get the relative path of a file
 function! FileRelativePath()
@@ -70,3 +67,15 @@ function! s:GitBlame()
 endfunction
 
 nnoremap <leader>gb :Blame<cr>
+
+" Window resizing
+function! s:ResizeWindows()
+  set winwidth=120
+  " Make other windows sizes equal in remaining space
+  wincmd =
+endfunction
+
+augroup ResizeWindowsAug
+  autocmd!
+  autocmd WinEnter * :call s:ResizeWindows()
+augroup END
