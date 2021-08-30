@@ -1,8 +1,6 @@
 call plug#begin()                          " vim-plug begin
 
 Plug 'jiangmiao/auto-pairs'                " Auto bracket or parens closing
-" Plug 'roman/golden-ratio'                  " Auto split sizing
-Plug 'berndhartzer/golden-ratio', { 'branch': 'no-horizontal-resize' }
 Plug 'alvan/vim-closetag'                  " Auto close html tags
 Plug 'tpope/vim-sleuth'                    " Auto detect and set indenting options
 Plug 'tpope/vim-commentary'                " Code commenting
@@ -51,8 +49,6 @@ nnoremap <leader>gr :Ag<Space><C-r><C-w><cr>
 
 let g:closetag_filenames = "*.html,*.tpl"  " Auto close html tags in html and tpl files
 
-let g:golden_ratio_resize_horizontal = 0   " Quick fix for disabling golden-ratio horizontal resizing
-
 " Get the relative path of a file
 function! FileRelativePath()
   return fnamemodify(expand("%"), ":~:.")
@@ -80,3 +76,17 @@ endfunction
 nnoremap <leader>gb :Blame<cr>
 
 set belloff=all
+
+" Window resizing. Window width should be 2/3 of the screen size, or at least
+" 120 columns wide
+function! s:ResizeWindows()
+  let wmax = max([float2nr(&columns*0.66), 120])
+  execute "set winwidth=".wmax
+  " Make other windows sizes equal in remaining space
+  wincmd =
+endfunction
+
+augroup ResizeWindowsAug
+  autocmd!
+  autocmd WinEnter * :call s:ResizeWindows()
+augroup END
