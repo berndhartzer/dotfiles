@@ -64,3 +64,16 @@ gh() {
 function jira() {
 	open "https://arkoselabs.atlassian.net/browse/${1}"
 }
+
+function av() {
+	PROFILE=${1}
+
+	# Delete old AWS vars
+	sed -i .bak "/AWS_/d" ~/.env
+
+	echo "# AWS_ vars set automatically, see ~/.zshrc av()" >> ~/.env
+	aws-vault exec "${PROFILE}" -- env | grep -E '^AWS_(ACCESS|SECRET|SESSION)' | awk '$0="export "$0' >> ~/.env
+
+	# Reload env
+	source ~/.env
+}
