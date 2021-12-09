@@ -15,3 +15,6 @@
 	excludesfile = /Users/berndhartzer/.gitignore_global
 [commit]
 	template = /Users/berndhartzer/.stCommitMsg
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
