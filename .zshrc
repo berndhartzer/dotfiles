@@ -28,6 +28,9 @@ alias tf='terraform'
 # direnv
 eval "$(direnv hook zsh)"
 
+# python installation with pyenv
+PATH=$(pyenv root)/shims:$PATH
+
 source ~/.env
 
 # tabtab source for serverless package
@@ -40,22 +43,29 @@ source ~/.env
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/berndhartzer/dev/funcaptcha/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/berndhartzer/dev/funcaptcha/node_modules/tabtab/.completions/slss.zsh
 
-gh() {
+function gh() {
 	REPO=${1}
+	COMMIT=${2}
+	URL_PATH=""
 
 	if [ "${REPO}" = "." ]; then
 		git status > /dev/null 2>&1
 		if [ $? -eq 0 ]; then
 			REPO=$(git config --get remote.origin.url | awk -F'[:.]' '{print $3;}')
 			BRANCH=$(git rev-parse --abbrev-ref HEAD)
-			REPO="${REPO}/tree/${BRANCH}"
+			REPO="${REPO}"
+			URL_PATH="/tree/${BRANCH}"
 		else
 			REPO=""
 		fi
 	fi
 
+	if [ "${COMMIT}" != "" ]; then
+	    URL_PATH="/commit/${COMMIT}"
+	fi
+
 	if [ "${REPO}" != "" ]; then
-		open https://github.com/${REPO}
+		open https://github.com/${REPO}${URL_PATH}
 	else
 		echo "failed: not in git repo"
 	fi
