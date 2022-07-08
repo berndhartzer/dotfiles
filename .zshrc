@@ -87,3 +87,22 @@ function av() {
 	# Reload env
 	source ~/.env
 }
+
+function unset_aws() {
+	unset AWS_ACCESS_KEY_ID
+	unset AWS_SECRET_ACCESS_KEY
+	unset AWS_SESSION_TOKEN
+	unset AWS_SESSION_EXPIRATION
+	unset AWS_DYNAMODB_REGION
+	unset AWS_SHARED_PROFILE
+	unset AWS_ACCOUNT_ID
+	unset AWS_REGION
+
+	echo "AWS_ vars unset, see remaining:"
+	env | grep AWS_
+}
+
+function sso-sync {
+    aws sso login --profile $1
+    yawsso -p $1:$2
+}
