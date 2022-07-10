@@ -25,6 +25,7 @@ set ignorecase                             " Make searches case insensitive
 set smartcase                              " Searches only case sensitive when there is a capital letter
 set hlsearch                               " Highlight search matches
 set incsearch                              " Incremental search; show search matches while typing
+highlight IncSearch cterm=NONE ctermfg=black ctermbg=yellow
 
 set backspace=indent,eol,start             " Make backspace behave 'normally'
 set autoindent                             " Auto indent on new line
