@@ -82,3 +82,7 @@ augroup ResizeWindowsAug
   autocmd!
   autocmd WinEnter * :call s:ResizeWindows()
 augroup END
+
+" jump to fn definition
+nnoremap ]] :call search("^func")<cr>
+nnoremap [[ :call search("^func", "b")<cr>
