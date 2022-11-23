@@ -27,23 +27,31 @@ eval "$(direnv hook zsh)"
 # $ gh berndhartzer/dotfiles
 # Alternatively, we can open the repo (and branch) at our current working directory like so:
 # $ gh .
-gh() {
+# Or, open a specific commit in a repo
+# $ gh . <commit SHA>
+function gh() {
 	REPO=${1}
+	COMMIT=${2}
+	URL_PATH=""
 
 	if [ "${REPO}" = "." ]; then
 		git status > /dev/null 2>&1
 		if [ $? -eq 0 ]; then
-			REPO=$(git config --get remote.origin.url | awk -F'[:.]' '{print $3}')
+			REPO=$(git config --get remote.origin.url | awk -F'[:.]' '{print $3;}')
 			BRANCH=$(git rev-parse --abbrev-ref HEAD)
-
-			REPO="${REPO}/tree/${BRANCH}"
+			REPO="${REPO}"
+			URL_PATH="/tree/${BRANCH}"
 		else
 			REPO=""
 		fi
 	fi
 
+	if [ "${COMMIT}" != "" ]; then
+	    URL_PATH="/commit/${COMMIT}"
+	fi
+
 	if [ "${REPO}" != "" ]; then
-		open https://github.com/${REPO}
+		open https://github.com/${REPO}${URL_PATH}
 	else
 		echo "failed: not in git repo"
 	fi
