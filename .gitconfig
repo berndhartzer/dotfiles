@@ -6,5 +6,8 @@
 	# List files on the current branch which have been changed from the target branch
 	brdiff = !sh -c 'git diff --name-only "$1"' -
 
+	# list last 10 most recently committed branches
+	brls = ! git branch --sort=-committerdate | head -n 10
+
 [diff]
 	tool = vimdiff
