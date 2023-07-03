@@ -16,6 +16,8 @@ alias dc='docker-compose'
 
 alias tf='terraform'
 
+alias ag='ag --hidden'
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -42,6 +44,9 @@ source ~/.env
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/berndhartzer/dev/funcaptcha/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/berndhartzer/dev/funcaptcha/node_modules/tabtab/.completions/slss.zsh
+
+# istioctl
+export PATH=$HOME/.istioctl/bin:$PATH
 
 function gh() {
 	REPO=${1}
