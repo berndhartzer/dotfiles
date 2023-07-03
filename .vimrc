@@ -42,7 +42,11 @@ let mapleader = "\<Space>"
 " Clear search
 nmap <silent> <leader>/ :nohlsearch<CR>
 
-" FZF
+" fzf/ag
+" add --hidden when calling ag to also search hidden/dot files
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--hidden', fzf#vim#with_preview(), <bang>0)
+
+" fzf
 nnoremap <leader>f :GFiles<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>: :History:<cr>
