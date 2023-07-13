@@ -11,11 +11,9 @@ SAVEHIST=1000
 # alias config='/usr/bin/git --git-dir=/Users/berndhartzer/.cfg/ --work-tree=/Users/berndhartzer'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-# Listing files
 alias ll='ls -alG'
-
-# Docker
 alias dc='docker-compose'
+alias tf='terraform'
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
