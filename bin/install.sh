@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # Function keyword used here as config is an alias
 function config() {
     /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
