@@ -9,23 +9,30 @@ Plug 'junegunn/fzf.vim'                    " Handy fzf vim wrapper
 Plug 'arcticicestudio/nord-vim'            " Nord colorscheme
 Plug 'knsh14/vim-github-link'              " Links for GitHub
 
+Plug 'preservim/vim-colors-pencil'         " Colour for editing markdown
+Plug 'cormacrelf/vim-colors-github'
+Plug 'junegunn/goyo.vim'
+
 call plug#end()                            " vim-plug end
 
 syntax enable                              " Syntax highlighting
 set nowrap                                 " No word wrapping at end of line
-silent! colorscheme nord                   " Set colorscheme - don't prompt me on error
 
+" nord
+silent! colorscheme nord                   " Set colorscheme - don't prompt me on error
 set colorcolumn=80,100                     " 80, 100 character column marker
 highlight ColorColumn ctermbg=0            " Set column marker colour
+highlight StatusLine ctermfg=7             " Statusline text white
+
 set laststatus=2                           " Always show the statusline
 set statusline=\ %{FileRelativePath()}     " Statusline contents
-highlight StatusLine ctermfg=7             " Statusline text white
 
 set ignorecase                             " Make searches case insensitive
 set smartcase                              " Searches only case sensitive when there is a capital letter
 set hlsearch                               " Highlight search matches
 set incsearch                              " Incremental search; show search matches while typing
 highlight IncSearch cterm=NONE ctermfg=black ctermbg=yellow
+highlight Visual cterm=NONE ctermfg=black ctermbg=yellow
 
 set backspace=indent,eol,start             " Make backspace behave 'normally'
 set autoindent                             " Auto indent on new line
@@ -86,3 +93,23 @@ augroup END
 " jump to fn definition
 nnoremap ]] :call search("^func")<cr>
 nnoremap [[ :call search("^func", "b")<cr>
+
+" Allow setting a project/dir specific .vimrc file
+set exrc
+set secure " Dont allow vim to run autocmd in local .vimrc files
+
+" config for notes
+" this config is set in path/to/notes/.vimrc
+" set background=light
+" " silent! colorscheme pencil
+" silent! colorscheme github
+" set wrap
+" nmap j gj
+" nmap k gk
+" set spell
+"
+" let g:netrw_sort_by="time"
+" let g:netrw_sort_direction="reverse"
+"
+" let g:goyo_width=120
+" autocmd vimenter * Goyo
